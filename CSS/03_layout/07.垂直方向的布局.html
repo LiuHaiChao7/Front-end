@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outer{
+            background-color: #bfa;
+
+        }
+        .inner{
+            width: 100px;
+            background-color: yellow;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            /*
+                子元素是在父元素的内容区中排列的，如果子元素的大小超过了父元素，则会溢出
+                使用overflow属性来设置父元素，overflow的可选值：
+                    visible 默认值 子元素会从父元素中溢出，在父元素外部显示
+                    hidden  溢出的内容会被裁剪，将不显示
+                    scroll  生成两个滚动条
+                    auto    根据需要生成滚动条
+                x，y方向的溢出设置
+                    overflow-x：
+                    overflow-y：
+             */
+             overflow: auto;
+        }
+        .box2{
+            width: 100px;
+            height: 400px;
+            background-color: violet;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="outer">
+        <div class="inner"></div>
+        <div class="inner"></div>
+    </div> -->
+    <div class="box1">
+        2021年精英青少年球员训练营（07、08年龄段）在上海根宝足球基地圆满结束，河北足球俱乐部青训总监吕军是本次训练营教练组负责人之一，俱乐部李星辰、王镡幼、和紫焘、张天宇四名球员参与了本期训练营，中国足协特向我俱乐部发来感谢函，感谢俱乐部对于本期训练营的支持。河北足球俱乐部将一如既往地深耕青训事业，大力培养年轻运动员，为中国足球事业的腾飞贡献力量。
+    </div>
+
+</body>
+</html>
