@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+           border: 10px red solid;
+        }
+        .box2{
+            width: 200px;
+            height: 300px;
+            background-color: orange;
+            float: left;
+        }
+        .box3{
+            clear: both;
+        }
+        /* 
+            在box2后面添加box3也可以解决高度塌陷问题
+            不方便，应该从css样式上解决问题，而不是从html结构上
+
+            解决方法：通过after伪元素，在元素最后加一个标签
+
+         */
+         /* 最终解决方案 */
+        .box1::after{
+            content: '';
+            /* after默认是行内元素，所以需要设置成块 */
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+        <!-- <div class="box3"></div> -->
+    </div>
+</body>
+</html>
