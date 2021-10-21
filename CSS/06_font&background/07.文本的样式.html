@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 800px;
+            border: 1px red solid;
+            /*
+                text-align 文本的水平对齐
+                    可选值：
+                        left 左侧对齐
+                        right 右侧对齐
+                        center 居中对齐
+                        justify 两端对齐 
+             */
+            text-align: center;
+            font-size: 50px;
+        }
+        span{
+            font-size: 20px;
+            border: 1px blue solid;
+            /*
+                vertical-align 设置元素垂直对齐的方式
+                    可选值：
+                        baseline 默认值 基线对齐
+                        top 顶部对齐
+                        bottom 底部对齐
+                        middle 居中对齐 
+             */
+            vertical-align: top;
+        }
+        p{
+            border: 1px red solid;
+        }
+        /* 此时图片底部会有一个空行，是基线对齐的问题，改成其他的就没有 */
+        img{
+            /* vertical-align: baseline; */
+            vertical-align: bottom;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        今天天气<span>真不错Hello</span>！
+    </div>
+    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, ea sint. Impedit earum ex consectetur cumque eius rerum ducimus excepturi! Quaerat, natus nesciunt minima molestiae neque maxime consectetur vitae quae?</div>
+    <p><img src="./img/an.jpg" alt=""></p>
+</body>
+</html>

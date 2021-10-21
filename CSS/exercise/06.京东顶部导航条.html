@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东顶部导航条</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./fa/css/all.css">
+    <style>
+        /* 解决高度塌陷 */
+        .clearfix::before,
+        .clearfix::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        body {
+            font: 12px/1.5 Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+        }
+
+        .top-bar-wrapper {
+            width: 100%;
+            background-color: #E3E4E5;
+            line-height: 30px;
+            border: 1px #ddd solid;
+        }
+
+        .top-bar {
+            width: 1190px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* 设置字体颜色 */
+        .top-bar a,
+        .top-bar span,
+        .top-bar i {
+            color: #999;
+            text-decoration: none;
+            /* 去除hover时上边多出的横线 */
+            position: relative;
+
+        }
+
+        /* 设置hover */
+        .top-bar a:hover,
+        .top-bar a.highlight {
+            color: #f10215;
+        }
+
+        .location {
+            float: left;
+        }
+
+        .location .fas {
+            color: #f10215;
+        }
+
+        .current-city {
+            padding: 0px 10px;
+            /* 保持和hover一样，字就不会动，然后边框设置为透明色即可 */
+            border: 1px solid transparent;
+            border-bottom: none;
+            position: relative;
+            z-index: 99;
+        }
+
+        .location:hover .current-city {
+            background-color: white;
+            border: 1px solid rgb(204, 204, 204);
+            border-bottom: none;
+            padding-bottom: 1px;
+        }
+
+        .location .city-list {
+            display: none;
+            width: 300px;
+            height: 436px;
+            background-color: white;
+            border: 1px solid rgb(204, 204, 204);
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            z-index: 9;
+            top: 31px;
+        }
+
+        .location:hover .city-list {
+            display: block;
+        }
+
+        .shortcut {
+            float: right;
+            
+        }
+
+        .shortcut li {
+            float: left;
+            position: relative;
+        }
+
+        .shortcut li.line {
+            width: 1px;
+            height: 10px;
+            background-color: rgb(204, 202, 202);
+            margin: 11px 5px 0px;
+        }
+
+        /* 我的京东下拉菜单 */
+        .dropdown-layer {
+            display: none;
+            /* width: 280px;
+            height: 100px; */
+            background-color: white;
+            border: 1px solid rgb(204, 204, 204);
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            z-index: 9;
+            top: 31px;
+            /* left:-1px; */
+        }
+        .my-jd .dropdown-layer{
+            width: 280px;
+            height: 100px;
+            padding: 0px;
+            margin: 0px;
+        }
+        .enter-buy .dropdown-layer{
+            width: 140px;
+            height: 100px;
+        }
+        .service .dropdown-layer{
+            width: 170px;
+            height: 100px;
+        }
+        .web—nav .dropdown-layer{
+            width: 988px;
+            height: 100px;
+        }
+        .phone-jd .dropdown-layer{
+            width: 190px;
+            height: 300px;
+        } 
+
+        .my-jd:hover .dropdown-layer,
+        .enter-buy:hover .dropdown-layer,
+        .service:hover .dropdown-layer,
+        .web—nav:hover .dropdown-layer,
+        .phone-jd:hover .dropdown-layer{
+            display: block;
+        }
+        .shortcut li .name{
+            padding: 0px 10px;
+            border: 1px solid transparent;
+            border-bottom: none;
+            position: relative;
+            z-index: 999;
+            
+        }
+        .shortcut .my-jd:hover .name,
+        .shortcut .enter-buy:hover .name,
+        .shortcut .service:hover .name,
+        .shortcut .web—nav:hover .name,
+        .shortcut .phone-jd:hover .name
+        {
+            background-color: white;
+            border: 1px solid rgb(204, 204, 204);
+            border-bottom: none;
+            padding-bottom: 1px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- 创建外围容器 -->
+    <div class="top-bar-wrapper">
+        <!-- 创建内部容器 -->
+        <div class="top-bar clearfix">
+            <!-- 左侧的菜单 -->
+            <div class="location">
+                <div class="current-city">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <a href="javascript:;">北京</a>
+                </div>
+
+                <!-- 放置城市列表 -->
+                <div class="city-list"></div>
+            </div>
+
+            <!-- 右侧的菜单 -->
+            <ul class="shortcut clearfix">
+                <li>
+                    <div class="name">
+                        <a href="javascript:;">你好，请登录</a>
+                        <a class="highlight" href="javascript:;">免费注册</a>
+                    </div>
+                </li>
+                <!-- 分割线 -->
+                <li class="line"></li>
+
+                <li>
+                    <div class="name">
+                        <a href="javascript:;">我的订单</a>
+                    </div>
+                </li>
+                <li class="line"></li>
+
+                <li class="my-jd">
+                    <div class="name">
+                        <a href="javascript:;">我的京东</a>
+                        <i class="fas fa-angle-down"></i>
+                    </div>
+                    <!-- 放置我的京东的下拉栏 -->
+                    <div class="dropdown-layer"></div>
+                </li>
+                <li class="line"></li>
+
+                <li>
+                    <div class="name">
+                        <a href="javascript:;">京东会员</a>
+                    </div>
+                </li>
+                <li class="line"></li>
+
+                <li class="enter-buy">
+                    <div class="name">
+                        <a class="highlight" href="javascript:;">企业采购</a>
+                        <i class="fas fa-angle-down"></i>
+                    </div>
+                    <!-- 放置企业采购的下拉栏 -->
+                    <div class="dropdown-layer"></div>
+                </li>
+                <li class="line"></li>
+
+                <li class="service">
+                    <div class="name">
+                        <span>客户服务</span>
+                        <i class="fas fa-angle-down"></i>
+                    </div>
+                    <!-- 放置客户服务的下拉栏 -->
+                    <div class="dropdown-layer"></div>
+                </li>
+                <li class="line"></li>
+
+                <li class="web—nav">
+                    <div class="name">
+                        <span>网站导航</span>
+                        <i class="fas fa-angle-down"></i>
+                    </div>
+                    <!-- 放置网站导航的下拉栏 -->
+                    <div class="dropdown-layer"></div>
+                </li>
+                <li class="line"></li>
+
+                <li class="phone-jd">
+                    <div class="name">
+                        <span>手机京东</span>
+                    </div>
+                    <div class="dropdown-layer"></div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

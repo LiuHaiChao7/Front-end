@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./fa/css/all.css">
+    <style>
+        /* 解决高度塌陷 */
+        .clearfix::before,
+        .clearfix::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        body {
+            font: 12px/1.5 Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+        }
+
+        .top-bar-wrapper {
+            width: 100%;
+            background-color: #E3E4E5;
+            line-height: 30px;
+            border: 1px #ddd solid;
+        }
+
+        .top-bar {
+            width: 1190px;
+            margin: 0 auto;
+        }
+
+        /* 设置字体颜色 */
+        .top-bar a,
+        .top-bar span,
+        .top-bar i {
+            color: #999;
+            text-decoration: none;
+            position: relative;
+            z-index: 21;
+            /* 去除hover时上边多出的横线 */
+            position: relative;
+
+        }
+
+        /* 设置hover */
+        .top-bar a:hover,
+        .top-bar .highlight {
+            color: #f10215;
+        }
+
+        .location {
+            float: left;
+            
+        }
+
+        .location .fas {
+            color: #f10215;
+        }
+
+        .current-city {
+            padding: 0px 10px;
+            /* 保持和hover一样，字就不会动，然后边框设置为透明色即可 */
+            border: 1px solid transparent;
+            border-bottom: none;
+            position: relative;
+            z-index: 99;
+        }
+
+
+        .location .city-list {
+            display: none;
+            width: 300px;
+            height: 436px;
+            background-color: white;
+            border: 1px solid rgb(204, 204, 204);
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            z-index: 9;
+            top: 31px;
+        }
+
+        .location:hover .city-list {
+            display: block;
+        }
+        .location:hover .current-city {
+            background-color: white;
+            border: 1px solid rgb(204, 204, 204);
+            border-bottom: none;
+            /* padding-bottom: 1px; */
+        }
+
+        .shortcut {
+            float: right;
+        }
+        .shortcut li{
+            float: left;
+            position: relative;
+        }
+        .shortcut li.line {
+            width: 1px;
+            height: 10px;
+            background-color: rgb(204, 202, 202);
+            margin: 12px 12px 0;
+        }
+        .mycount {
+            width: 150px;
+            height:100px;
+            background-color: #bfa;
+            border: 1px solid rgb(204, 204, 204);
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            z-index: 9;
+            top: 31px;
+            left: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 创建外围容器 -->
+    <div class="top-bar-wrapper">
+        <!-- 创建内部容器 -->
+        <div class="top-bar clearfix">
+            <!-- 左侧的菜单 -->
+            <div class="location">
+                <div class="current-city">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <a href="javascript:;">北京</a>
+                </div>
+
+                <!-- 放置城市列表 -->
+                <div class="city-list"></div>
+            </div>
+
+            <!-- 右侧的菜单 -->
+            <ul class="shortcut clearfix">
+
+                <li>
+                    <div>
+                        <a href="javascript:;">我的订单</a>
+                    </div>
+                </li>
+                <li class="line"></li>
+
+                <li class="my-jd">
+                    <div class="dt cw-icon">
+                        <a href="javascript:;">我的京东</a>
+                        <i class="fas fa-angle-down"></i>
+                    </div>
+                    <div class="mycount">
+                        <div>aaa</div>
+                    </div>
+                </li>
+                
+                <li class="line"></li>
+
+                <li>
+                    <div>
+                        <a href="javascript:;">京东会员</a>
+                    </div>
+                    
+                </li>
+                <li class="line"></li>
+
+                <li>
+                    <div class="dt cw-icon">
+                        <a class="highlight" href="javascript:;">企业采购</a>
+                        <i class="fas fa-angle-down"></i>
+                    </div>
+                    <div class="mycount">
+                        <div>bbb</div>
+                    </div>
+                </li>
+                <li class="line"></li>
+
+                <li>
+                    <div>
+                        <span>客户服务</span>
+                    <i class="fas fa-angle-down"></i>
+                    </div>
+                    
+                </li>
+
+                <li class="line"></li>
+                <li>
+                    <span>网站导航</span>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+
+                <li class="line"></li>
+                <li>
+                    <span>手机京东</span>
+                </li>
+            </ul>
+            <!-- 放置我的京东账户li信息 -->
+            
+        </div>
+    </div>
+</body>
+
+</html>
