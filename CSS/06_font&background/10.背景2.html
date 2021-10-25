@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 500px;
+            height: 500px;
+            /* 设置背景颜色 */
+            background-color: #bfa;
+            background-image: url("./img/1.png");
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            border: 10px red double;
+            padding: 10px;
+            overflow: scroll;
+            /* 
+                边框为两条线时可以看出背景的颜色延伸到了边框下
+                background-clip 设置背景显示的范围
+                    可选值：
+                        border-box 默认值，背景会延伸到边框下
+                        padding-box 背景会出现在内容区和内边距区域，不会延伸到边框下
+                        content-box 背景只出现在内容区
+            */
+            /* background-clip: padding-box; */
+            background-clip: content-box;
+
+            /*
+                background-origin 设置背景图片偏移量计算的原点（参照点）
+                    可选值：
+                        padding-box 默认值，从内边距处开始计算
+                        content-box 从内容区开始计算
+                        border-box  从边框处开始计算 
+             */
+            /* background-origin: padding-box; */
+            /* background-origin: content-box; */
+            background-origin: border-box;
+
+            /*
+                background-size 设置背景图片的大小
+                    第一个值：宽度，第二个值：高度
+                    如果只写一个，则第二个默认是auto，按照比例自动设置
+                    默认值：auto auto，铺满
+                    cover 图片的比例不变，将元素铺满
+                    contain 图片比例不变，将图片在元素中完整显示
+            */
+            /* 需要用一个尺寸大于元素大小的图片 */
+            background-image: url("./img/2.jpg");
+            background-size: auto auto;
+            background-size: contain;
+
+        }
+        .box2{
+            width: 300px;
+            height: 1000px;
+            background-color: orchid;
+            background-image: url("./img/1.png");
+            background-repeat: no-repeat;
+            background-position: 100px 100px;
+            /*
+                background-attachment 设置背景图片是否随元素移动
+                    可选值：
+                        scroll 默认值 背景图片会随元素移动
+                        fixed  背景会固定在页面中，不会随元素移动 
+            */
+            background-attachment: fixed;
+        }
+        .box3{
+            border: 10px red double;
+            padding: 50px;
+            width: 500px;
+            height: 1000px;
+            /*
+                background 背景相关简写属性
+                该样式没有顺序要求，但有以下两点需注意：
+                    background-size 必须写在background-position后边，并且使用/隔开
+                        background-position/background-size
+                    
+                    background-origin background-clip 两个样式，origin要在clip前边，先设置原点，再设置显示范围
+            */
+            background: url("./img/2.jpg") #bfa top center/contain  no-repeat  content-box padding-box fixed;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="box1">
+        <div class="box2">
+             Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti natus consequuntur reiciendis deserunt. Maxime voluptatibus magnam tenetur ex perspiciatis eveniet facilis doloremque fuga accusantium asperiores ipsa, rerum qui nostrum eligendi.
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed velit facere ipsam distinctio tenetur dolorum nemo reprehenderit reiciendis, perferendis ab atque, recusandae veniam error voluptate optio explicabo consequatur numquam. Impedit.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quidem nesciunt doloribus libero ipsa possimus! Qui incidunt architecto magnam eum autem modi ab vitae asperiores praesentium beatae, doloremque, consequatur id.
+        </div>
+    </div> -->
+    <div class="box3"></div>
+</body>
+
+</html>
