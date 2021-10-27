@@ -1,0 +1,21 @@
+// import用来将其他的less引入到当前的less
+@import "syntax2.less";
+.box9{
+    // 在less中所有的数值都可以直接进行运算 + - * /，除法需要括号括起来
+    width: 100px+100px;
+    height: (100px/2);
+    background-color: red;
+}
+/*
+    浏览器检查时，默认定位到css文件中的某一行，
+    现修改对应的less文件中的某一行
+    步骤：
+        1.复制easy less扩展下面的
+        "less.compile": {
+        "compress": true, // true => remove surplus whitespace
+        "sourceMap": true, // true => generate source maps (.css.map files)
+        "out": false // false => DON'T output .css files (overridable per-file, see below)
+        }
+        2.文件→首选项→设置→扩展→easy less→修改settings.json
+        3.保存
+*/

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul{
+            width: 600px;
+            height: 800px;
+            border: 10px solid red;
+            /* 将ul设置为弹性容器 */
+            display: flex;
+            flex-direction: row;
+            margin: 100px auto;
+            /*
+                flex-wrap：设置弹性元素是否在弹性容器中自动换行
+                    可选值：
+                        nowrap 默认值，元素不会自动换行
+                        wrap  元素沿着辅轴方向自动换行
+                        wrap-reverse  元素沿着辅轴反方向自动换行
+             */
+             flex-wrap: wrap;
+
+             /* flex-flow：wrap和direction的简写属性 */
+             flex-flow: row wrap;
+
+             /* 
+                align-items：元素在辅轴上如何对齐，元素间的关系
+                    可选值：
+                        stretch 默认值，将同一行元素的长度设置为相同的值，会拉伸
+                        flex-start 元素不会拉伸，沿着辅轴起边对齐
+                        flex-end 元素不会拉伸，沿着辅轴终边对齐
+                        center 居中对齐
+                        baseline 基线对齐
+             */
+            
+            align-items: flex-start;
+             /* 
+                align-content：辅轴空白空间的分布，一行看做一大块，一个整体
+                和justify-content相似
+            */
+            align-content: space-between;
+
+
+        }
+        li{
+            width: 200px;
+            background-color: #bfa;
+            font-size: 50px;
+            text-align: center;
+            line-height: 100px;
+            flex-shrink: 0;
+        }
+        li:nth-child(1){
+            /* flex-grow: 1;
+            flex-shrink: 1; */
+            /* align-self 用来覆盖当前弹性元素上的align-items ，即单独设置*/
+            align-self: center;
+        }
+        li:nth-child(2){
+            background-color: pink;
+            /* flex-grow: 2;
+            flex-shrink: 2; */
+        }
+        li:nth-child(3){
+            background-color: orange;
+            /* flex-grow: 3;
+            flex-shrink: 3; */
+        }
+        li:nth-child(4){
+            background-color: yellow;
+        }
+        li:nth-child(5){
+            background-color: chocolate;
+        }
+    </style>
+</head>
+<body>
+     <ul>
+         <li>1</li>
+
+         <li>
+             2
+             <div>2</div>
+        </li>
+
+         <li>
+             3
+             <div>3</div>
+             <div>3</div>
+        </li>
+
+        <li>1</li>
+
+         <li>
+             2
+             <div>2</div>
+        </li>
+
+     </ul>
+</body>
+</html>

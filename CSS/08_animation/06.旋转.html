@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 浏览器有关，有的设置html的视距，有的设置body的视距 */
+        body{
+            /* 设置当前网页的视距为800px，人眼距离网页的距离(一般设置800-1200px) */
+            perspective: 800px;
+        }
+        body{
+            border: 1px red solid;
+            background-color: silver;
+        }
+        .box1{
+            width: 320px;
+            height: 320px;
+            background-color: #bfa;
+            margin: 200px auto;
+            
+            
+            
+            transition: 2s;
+        }
+        body:hover .box1{
+            /*
+                通过旋转可以使元素沿着x y 或 z旋转指定的角度
+                    rotateX() 
+                    rotateY() 
+                    rotateZ() 
+                单位：deg度数，turn圈数
+             */
+
+            /* 要注意transform的前后顺序，绕着y轴旋转后，z轴朝向屏幕里，
+            所以正值实际上是往屏幕里面走，视觉上会会变小，此时远大近小不再适用
+             */
+            transform: rotateY(180deg) translateZ(300px);
+            /* 此时是远大近小 */
+            transform: translateZ(300px) rotateY(180deg) ;
+
+            
+            transform: rotateY(180deg);
+            /* 是否显示元素的背面 hidden隐藏， visible显示 */
+            backface-visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <img src="./an.jpg" alt="">
+    </div>
+</body>
+</html>
